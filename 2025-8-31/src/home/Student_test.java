@@ -54,11 +54,36 @@ public class Student_test {
     }
 
     public static void deleteStudent(ArrayList<student> list) {
-
+        System.out.println("请输入要删除的id");
+        Scanner sc = new Scanner(System.in);
+        String id = sc.next();
+        if (getIndex(list,id) >= 0) {
+            list.remove(getIndex(list,id));
+            return;
+        }
+        System.out.println("您输入的id不存在，已返回菜单");
     }
 
     public static void updateStudent(ArrayList<student> list) {
-
+        System.out.println("请输入要修改的id");
+        Scanner sc = new Scanner(System.in);
+        String id = sc.next();
+        int index = getIndex(list,id);
+        if (index >= 0) {
+            System.out.println("请输入修改后的name");
+            String name = sc.next();
+            student stu = list.get(index);
+            stu.setName(name);
+            System.out.println("请输入修改后的年龄");
+            int age = sc.nextInt();
+            stu.setAge(age);
+            System.out.println("请输入修改后的地址");
+            String address = sc.next();
+            stu.setAddress(address);
+            System.out.println("修改成功");
+            return;
+        }
+        System.out.println("id不存在已返回菜单");
     }
 
     public static void findStudent(ArrayList<student> list) {
@@ -80,5 +105,14 @@ public class Student_test {
             }
         }
         return true;
+    }
+
+    public static int getIndex(ArrayList<student> list,String id) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId().equals(id)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
