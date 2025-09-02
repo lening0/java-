@@ -4,12 +4,12 @@ public class user {
     private String userName;
     private String password;
     private String idCard;
-    public int phoneNumber;
+    private String phoneNumber;
 
     public user() {
     }
 
-    public user(String userName, String password, String idCard, int phoneNumber) {
+    public user(String userName, String password, String idCard, String phoneNumber) {
         this.userName = userName;
         this.password = password;
         this.idCard = idCard;
@@ -68,7 +68,7 @@ public class user {
      * 获取
      * @return phoneNumber
      */
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -76,11 +76,9 @@ public class user {
      * 设置
      * @param phoneNumber
      */
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String toString() {
-        return "user{userName = " + userName + ", password = " + password + ", idCard = " + idCard + ", phoneNumber = " + phoneNumber + "}";
-    }
+
 }
